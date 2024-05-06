@@ -3,31 +3,19 @@
 @{
     ViewData["Title"] = "Index";
 }
+<h1>Index</h1>
 
-
-<h1 style="color: #333; text-align: center;">Index of Wines</h1>
-
-<p style="text-align: center;">
-    <a asp-action="Create" style="background-color: #428bca; color: white; padding: 8px 15px; border-radius: 4px; font-size: 18px;">Create New Wine</a>
+<p>
+    <a asp-action="Create">Create New</a>
 </p>
-
-<table class="table table-hover table-bordered" style="background-color: #f5f5f5;">
+<table class="table">
     <thead>
-        <tr style="background-color: #e0e0e0; color: #333; border-bottom: 2px solid #428bca;">
+        <tr>
             <th>
-                @Html.DisplayNameFor(model => model.WineName)
+                @Html.DisplayNameFor(model => model.Tarea)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WineType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Winery)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VintageYear)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
+                @Html.DisplayNameFor(model => model.Usuario)
             </th>
             <th></th>
         </tr>
@@ -35,26 +23,17 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr style="color: #333; border-bottom: 1px solid #ddd;">
+            <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.WineName)
+                    @Html.DisplayFor(modelItem => item.Tarea.TareaId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.WineType)
+                    @Html.DisplayFor(modelItem => item.Usuario.UsuarioId)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Winery)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.VintageYear)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.WineId" style="color: #428bca; text-decoration: none;">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.WineId" style="color: #428bca; text-decoration: none;">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.WineId" style="color: #428bca; text-decoration: none;">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.AsignacionId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.AsignacionId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.AsignacionId">Delete</a>
                 </td>
             </tr>
         }
