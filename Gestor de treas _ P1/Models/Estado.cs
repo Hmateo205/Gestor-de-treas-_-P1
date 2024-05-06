@@ -3,6 +3,8 @@
     public enum Estado
     {
         Pendiente,
-        Completada
+        EnProgreso,
+        Completada,
+        Cancelada
     }
 }

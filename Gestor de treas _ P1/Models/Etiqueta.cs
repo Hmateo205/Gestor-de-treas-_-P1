@@ -3,7 +3,7 @@
     public class Etiqueta
     {
         public int EtiquetaId { get; set; }
-        public string NombreEtiqueta { get; set; }
-        public ICollection<TareaEtiqueta> TareasEtiquetas { get; set; }
+        public string Nombre { get; set; }
+        public string Color { get; set; }
     }
 }
