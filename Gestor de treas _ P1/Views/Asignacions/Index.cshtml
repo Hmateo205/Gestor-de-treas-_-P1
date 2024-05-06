@@ -4,38 +4,60 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Assignments</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5; /* Beige light */
+  }
+
+  h1 {
+    color: #228B22; /* Blue cerulean */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #E6F2FF; /* Beige cream */
+    color: #228B22; /* Blue cerulean */
+  }
+</style>
+
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Tarea)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Usuario)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tarea.TareaId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Usuario.UsuarioId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AsignacionId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AsignacionId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AsignacionId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>User</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var assignment in Model)
+    {
+      <tr>
+        <td>@assignment.Task.Name</td>
+        <td>@assignment.User.FullName</td>
+        <td>@assignment.Status</td>
+        <td>
+          <a asp-action="Details" asp-route-id="@assignment.Id">Details</a> |
+          <a asp-action="Edit" asp-route-id="@assignment.Id">Edit</a> |
+          <a asp-action="Delete" asp-route-id="@assignment.Id">Delete</a>
+        </td>
+      </tr>
+    }
+  </tbody>
 </table>
