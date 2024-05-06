@@ -17,5 +17,6 @@ namespace Gestor_de_treas___P1.Data
         public DbSet<Gestor_de_treas___P1.Models.Tarea> Tarea { get; set; } = default!;
         public DbSet<Gestor_de_treas___P1.Models.Etiqueta> Etiqueta { get; set; } = default!;
         public DbSet<Gestor_de_treas___P1.Models.Asignacion> Asignacion { get; set; } = default!;
+        public DbSet<Gestor_de_treas___P1.Models.Usuario> Usuario { get; set; } = default!;
     }
 }
