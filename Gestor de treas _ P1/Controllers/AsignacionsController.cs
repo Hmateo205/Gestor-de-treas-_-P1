@@ -50,7 +50,7 @@ namespace Gestor_de_treas___P1.Controllers
         public IActionResult Create()
         {
             ViewData["TareaId"] = new SelectList(_context.Tarea, "TareaId", "TareaId");
-            ViewData["UsuarioId"] = new SelectList(_context.Set<Usuario>(), "UsuarioId", "UsuarioId");
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "UsuarioId", "UsuarioId");
             return View();
         }
 
@@ -68,7 +68,7 @@ namespace Gestor_de_treas___P1.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TareaId"] = new SelectList(_context.Tarea, "TareaId", "TareaId", asignacion.TareaId);
-            ViewData["UsuarioId"] = new SelectList(_context.Set<Usuario>(), "UsuarioId", "UsuarioId", asignacion.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "UsuarioId", "UsuarioId", asignacion.UsuarioId);
             return View(asignacion);
         }
 
@@ -86,7 +86,7 @@ namespace Gestor_de_treas___P1.Controllers
                 return NotFound();
             }
             ViewData["TareaId"] = new SelectList(_context.Tarea, "TareaId", "TareaId", asignacion.TareaId);
-            ViewData["UsuarioId"] = new SelectList(_context.Set<Usuario>(), "UsuarioId", "UsuarioId", asignacion.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "UsuarioId", "UsuarioId", asignacion.UsuarioId);
             return View(asignacion);
         }
 
@@ -123,7 +123,7 @@ namespace Gestor_de_treas___P1.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["TareaId"] = new SelectList(_context.Tarea, "TareaId", "TareaId", asignacion.TareaId);
-            ViewData["UsuarioId"] = new SelectList(_context.Set<Usuario>(), "UsuarioId", "UsuarioId", asignacion.UsuarioId);
+            ViewData["UsuarioId"] = new SelectList(_context.Usuario, "UsuarioId", "UsuarioId", asignacion.UsuarioId);
             return View(asignacion);
         }
 

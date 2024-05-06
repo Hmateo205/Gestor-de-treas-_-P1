@@ -3,112 +3,37 @@
 @{
     ViewData["Title"] = "Edit";
 }
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #F5F5F5; /* Beige light */
-  }
 
-  h1 {
-    color: #228B22; /* Blue cerulean */
-    text-align: center;
-    margin-bottom: 20px;
-  }
+<h1>Edit</h1>
 
-  .edit-form {
-    background-color: #E6F2FF; /* Beige cream */
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    width: 500px;
-    margin: 0 auto;
-  }
+<h4>Asignacion</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="AsignacionId" />
+            <div class="form-group">
+                <label asp-for="TareaId" class="control-label"></label>
+                <select asp-for="TareaId" class="form-control" asp-items="ViewBag.TareaId"></select>
+                <span asp-validation-for="TareaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsuarioId" class="control-label"></label>
+                <select asp-for="UsuarioId" class="form-control" asp-items="ViewBag.UsuarioId"></select>
+                <span asp-validation-for="UsuarioId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
 
-  .edit-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-
-  .edit-form select {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #CCC;
-    border-radius: 5px;
-  }
-
-  .edit-form input[type="text"],
-  .edit-form textarea {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #CCC;
-    border-radius: 5px;
-  }
-
-  .edit-form button {
-    background-color: #228B22; /* Blue cerulean */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-
-  .edit-form button:hover {
-    background-color: #191970; /* Blue navy dark */
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  .text-danger {
-    color: red;
-  }
-</style>
-
-<h1>Edit Assignment</h1>
-
-<form asp-action="Edit" asp-route-id="@Model.Id">
-  <input type="hidden" asp-for="Id" />
-
-  <div class="form-group">
-    <label asp-for="TaskId">Task:</label>
-    <select asp-for="TaskId" class="form-control" id="taskId">
-      <option value="">-- Select Task --</option>
-    </select>
-    <span asp-validation-for="TaskId" class="text-danger"></span>
-  </div>
-
-  <div class="form-group">
-    <label asp-for="UserId">User:</label>
-    <select asp-for="UserId" class="form-control" id="userId">
-      <option value="">-- Select User --</option>
-    </select>
-    <span asp-validation-for="UserId" class="text-danger"></span>
-  </div>
-
-  <div class="form-group">
-    <label asp-for="DueDate">Due Date:</label>
-    <input type="date" asp-for="DueDate" class="form-control" />
-    <span asp-validation-for="DueDate" class="text-danger"></span>
-  </div>
-
-  <div class="form-group">
-    <label asp-for="Description">Description:</label>
-    <textarea asp-for="Description" class="form-control"></textarea>
-    <span asp-validation-for="Description" class="text-danger"></span>
-  </div>
-
-  <button type="submit" class="btn btn-primary">Save Changes</button>
-  <a asp-action="Index">Back to List</a>
-</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
 @section Scripts {
-  <script>
-    $(document).ready(function () {
-      // Your logic to populate the task and user dropdown lists using AJAX or server-side data
-    });
-  </script>
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
