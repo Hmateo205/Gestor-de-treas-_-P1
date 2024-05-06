@@ -9,7 +9,10 @@
         public DateTime? FechaVencimiento { get; set; }
         public Prioridad Prioridad { get; set; }
         public Estado Estado { get; set; }
+        public int CategoriaId { get; set; }
+        public Categoria Categoria { get; set; }
         public List<Etiqueta> Etiquetas { get; set; }
-        public Usuario Asignado { get; set; }
+        public List<Asignacion> Asignaciones { get; set; }
     }
+
 }

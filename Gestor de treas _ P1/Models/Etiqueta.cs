@@ -5,5 +5,7 @@
         public int EtiquetaId { get; set; }
         public string Nombre { get; set; }
         public string Color { get; set; }
+        public List<Tarea> Tareas { get; set; }
     }
+
 }
